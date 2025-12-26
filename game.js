@@ -15,6 +15,13 @@ let isHost = false;
 if (typeof io !== 'undefined') {
     socket = io();
     setupSocketListeners();
+} else {
+    // Hide online multiplayer button if Socket.IO is not available
+    const onlineBtn = document.getElementById('onlineBtn');
+    if (onlineBtn) {
+        onlineBtn.style.display = 'none';
+    }
+    console.log('Online multiplayer not available - server not running');
 }
 
 // Game state

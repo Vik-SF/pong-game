@@ -14,6 +14,8 @@ A beautiful Pong game with 1-player, 2-player local, and **online multiplayer** 
 1. Open `index.html` in your web browser
 2. Choose your game mode and play!
 
+**Note:** If you're viewing this on GitHub Pages, only local game modes (1 Player and 2 Players Local) are available. For online multiplayer, you need to run the Node.js server (see below).
+
 ## Online Multiplayer Setup
 
 To play online with friends on the same WiFi network:
