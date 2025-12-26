@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pong Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="menu" class="menu">
+        <h1>PONG</h1>
+        <button id="onePlayerBtn" class="menu-btn">1 Player</button>
+        <button id="twoPlayerBtn" class="menu-btn">2 Players (Local)</button>
+        <button id="onlineBtn" class="menu-btn online-btn">Online Multiplayer</button>
+        <div class="controls-info">
+            <p><strong>Player 1:</strong> W (Up) / S (Down)</p>
+            <p><strong>Player 2:</strong> ↑ (Up) / ↓ (Down)</p>
+            <p class="mobile-hint">📱 <em>Touch controls on mobile/iPad!</em></p>
+        </div>
+    </div>
+    
+    <div id="onlineMenu" class="menu hidden">
+        <h1>ONLINE</h1>
+        <button id="createRoomBtn" class="menu-btn">Create Room</button>
+        <button id="joinRoomBtn" class="menu-btn">Join Room</button>
+        <button id="backToMainBtn" class="back-btn">Back</button>
+    </div>
+    
+    <div id="roomMenu" class="menu hidden">
+        <h2 id="roomTitle">Room</h2>
+        <div id="roomCodeDisplay" class="room-code"></div>
+        <div id="waitingMessage" class="waiting-msg">Waiting for opponent...</div>
+        <div id="readyMessage" class="ready-msg hidden">Opponent connected! Starting game...</div>
+        <button id="cancelRoomBtn" class="back-btn">Cancel</button>
+    </div>
+    
+    <div id="joinRoomMenu" class="menu hidden">
+        <h2>Join Room</h2>
+        <input type="text" id="roomCodeInput" class="room-input" placeholder="Enter Room Code" maxlength="6">
+        <button id="submitJoinBtn" class="menu-btn">Join</button>
+        <div id="joinError" class="error-msg hidden"></div>
+        <button id="backFromJoinBtn" class="back-btn">Back</button>
+    </div>
+    
+    <div id="game" class="game-container hidden">
+        <div class="score-board">
+            <div class="score">
+                <span id="player1Score">0</span>
+            </div>
+            <div class="game-mode">
+                <span id="modeDisplay"></span>
+            </div>
+            <div class="score">
+                <span id="player2Score">0</span>
+            </div>
+        </div>
+        
+        <div class="canvas-wrapper">
+            <canvas id="pongCanvas"></canvas>
+            
+            <!-- Touch Controls -->
+            <div id="touchControls" class="touch-controls">
+                <!-- Player 1 Controls (Left) -->
+                <div class="touch-controls-left">
+                    <button id="p1UpBtn" class="touch-btn touch-up">▲</button>
+                    <button id="p1DownBtn" class="touch-btn touch-down">▼</button>
+                </div>
+                
+                <!-- Player 2 Controls (Right) -->
+                <div class="touch-controls-right">
+                    <button id="p2UpBtn" class="touch-btn touch-up">▲</button>
+                    <button id="p2DownBtn" class="touch-btn touch-down">▼</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="touch-hint">Tap and drag on your side, or use the buttons</div>
+        <button id="backBtn" class="back-btn">Back to Menu</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
+

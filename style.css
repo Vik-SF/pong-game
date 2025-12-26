@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.menu {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px 60px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in;
+}
+
+.menu h1 {
+    color: white;
+    font-size: 72px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 10px;
+}
+
+.menu-btn {
+    display: block;
+    width: 250px;
+    padding: 15px 30px;
+    margin: 20px auto;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.menu-btn:hover {
+    background: white;
+    color: #667eea;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+}
+
+.controls-info {
+    margin-top: 40px;
+    color: white;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.controls-info p {
+    margin: 5px 0;
+}
+
+.mobile-hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.score {
+    flex: 1;
+    text-align: center;
+}
+
+.game-mode {
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+canvas {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+.back-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: white;
+    color: #667eea;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Online multiplayer styles */
+.online-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 2px solid white;
+}
+
+.online-btn:hover {
+    background: white;
+    color: #667eea;
+}
+
+.menu h2 {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 5px;
+}
+
+.room-code {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px 40px;
+    border-radius: 15px;
+    margin: 30px 0;
+    letter-spacing: 10px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.waiting-msg {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    margin: 20px 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.ready-msg {
+    color: #4ade80;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.room-input {
+    width: 300px;
+    padding: 15px 25px;
+    margin: 20px auto;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.room-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 2px;
+}
+
+.room-input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.error-msg {
+    color: #ff6b6b;
+    font-size: 16px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Touch Controls */
+.canvas-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.touch-controls {
+    display: none; /* Hidden by default, shown by JS on touch devices */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.touch-controls-left,
+.touch-controls-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    pointer-events: all;
+}
+
+.touch-controls-left {
+    left: 10px;
+}
+
+.touch-controls-right {
+    right: 10px;
+}
+
+.touch-btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.touch-btn:active {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0.95);
+}
+
+.touch-hint {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-top: 10px;
+    display: none; /* Hidden by default, shown by JS on touch devices */
+}
+
+/* Mobile/Tablet Responsiveness */
+@media (max-width: 900px) {
+    body {
+        overflow-y: auto;
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+
+    .menu {
+        padding: 30px 40px;
+        max-width: 90%;
+    }
+
+    .menu h1 {
+        font-size: 48px;
+        margin-bottom: 30px;
+        letter-spacing: 5px;
+    }
+
+    .menu h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .menu-btn {
+        width: 220px;
+        padding: 12px 25px;
+        font-size: 20px;
+        margin: 15px auto;
+    }
+
+    .score-board {
+        width: 100%;
+        max-width: 90vw;
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .game-mode {
+        font-size: 16px;
+    }
+
+    canvas {
+        max-width: 90vw;
+        height: auto;
+    }
+
+    .room-code {
+        font-size: 36px;
+        padding: 15px 30px;
+        letter-spacing: 8px;
+    }
+
+    .room-input {
+        width: 250px;
+        padding: 12px 20px;
+        font-size: 20px;
+    }
+
+    .controls-info {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu h1 {
+        font-size: 36px;
+        letter-spacing: 3px;
+    }
+
+    .menu-btn {
+        width: 180px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .score-board {
+        font-size: 28px;
+    }
+
+    .game-mode {
+        font-size: 14px;
+    }
+
+    .touch-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .touch-controls-left {
+        left: 5px;
+    }
+
+    .touch-controls-right {
+        right: 5px;
+    }
+}
+
+/* iPad specific */
+@media (min-width: 768px) and (max-width: 1024px) {
+    canvas {
+        width: 700px;
+        height: 525px;
+    }
+
+    .touch-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    .menu {
+        padding: 20px 40px;
+    }
+
+    .menu h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .menu-btn {
+        margin: 10px auto;
+        padding: 10px 20px;
+    }
+
+    canvas {
+        max-height: 50vh;
+    }
+}
+
+/* Prevent text selection on touch devices */
+.touch-btn,
+canvas,
+.menu-btn,
+.back-btn {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
